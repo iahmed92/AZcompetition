@@ -1,0 +1,41 @@
+name: Weekly EDM Calendar Update
+
+on:
+  schedule:
+    # Every Monday at 8:00 AM MST (3:00 PM UTC)
+    - cron: '0 15 * * 1'
+  # Also allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run build script
+        env:
+          TM_API_KEY: ${{ secrets.TM_API_KEY }}
+        run: node build.js
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=dist --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Upload built file as artifact (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: az-edm-calendar-${{ github.run_number }}
+          path: dist/index.html
+          retention-days: 30

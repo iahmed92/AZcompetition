@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arizona EDM Calendar — Competitive Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d0f; --bg2: #141416; --bg3: #1c1c1f;
+    --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.13);
+    --text: #f0efe8; --muted: #888884; --dim: #444440;
+    --accent: #c8f060; --accent2: #7b6cff;
+    --phx: #ff8c42; --tuc: #7b6cff; --fest: #c8f060; --up: #3ecf8e;
+    --mono: 'DM Mono', monospace; --sans: 'DM Sans', sans-serif;
+  }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.5; min-height: 100vh; }
+
+  .header { border-bottom: 1px solid var(--border); padding: 24px 32px 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.3px; }
+  .header h1 span { color: var(--accent); }
+  .header p { font-size: 12px; color: var(--muted); margin-top: 3px; font-family: var(--mono); }
+  .badge { font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; white-space: nowrap; }
+
+  .stats { display: flex; gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+  .stat { flex: 1; background: var(--bg); padding: 14px 20px; min-width: 0; }
+  .stat-label { font-size: 10px; font-family: var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 3px; }
+  .stat-val { font-size: 26px; font-weight: 600; color: var(--text); font-family: var(--mono); }
+  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+  .controls { padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; border-bottom: 1px solid var(--border); background: var(--bg2); position: sticky; top: 0; z-index: 10; }
+  .search-box { flex: 1; min-width: 180px; max-width: 300px; position: relative; }
+  .search-box input { width: 100%; background: var(--bg3); border: 1px solid var(--border2); border-radius: 8px; padding: 7px 12px 7px 34px; color: var(--text); font-family: var(--sans); font-size: 13px; outline: none; transition: border-color 0.15s; }
+  .search-box input:focus { border-color: var(--accent2); }
+  .search-box input::placeholder { color: var(--dim); }
+  .si { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--dim); font-size: 14px; pointer-events: none; }
+  .btn-group { display: flex; gap: 3px; background: var(--bg3); border-radius: 8px; padding: 3px; border: 1px solid var(--border); }
+  .fb { background: transparent; border: none; border-radius: 6px; padding: 5px 12px; font-size: 12px; font-family: var(--sans); cursor: pointer; color: var(--muted); transition: all 0.12s; white-space: nowrap; }
+  .fb:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .fb.on { background: rgba(255,255,255,0.1); color: var(--text); font-weight: 500; }
+  .fb.on-phx { background: rgba(255,140,66,0.18); color: var(--phx); }
+  .fb.on-tuc { background: rgba(123,108,255,0.18); color: var(--tuc); }
+  .cpill { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-left: auto; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; }
+
+  .main { padding: 0 32px 48px; }
+  .sec-head { font-family: var(--mono); font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.12em; padding: 20px 0 10px; display: flex; align-items: center; gap: 10px; }
+  .sec-head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .events { display: flex; flex-direction: column; gap: 1px; }
+  .card { background: var(--bg2); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: start; padding: 12px 14px; cursor: pointer; transition: background 0.12s; }
+  .card:hover { background: var(--bg3); }
+  .card.past { opacity: 0.5; }
+  .card:first-child { border-top: 1px solid var(--border); border-radius: 8px 8px 0 0; }
+  .card:last-child { border-radius: 0 0 8px 8px; }
+  .card:only-child { border-radius: 8px; }
+
+  .date-col { text-align: center; padding-top: 2px; }
+  .d-mon { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .d-day { font-family: var(--mono); font-size: 22px; font-weight: 500; color: var(--text); line-height: 1; margin: 2px 0; }
+  .d-dow { font-family: var(--mono); font-size: 9px; color: var(--dim); }
+
+  .info-col { min-width: 0; }
+  .artist { font-size: 14px; font-weight: 500; color: var(--text); }
+  .venue { font-size: 12px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tags { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
+  .tag { font-size: 10px; font-family: var(--mono); padding: 2px 7px; border-radius: 4px; border: 1px solid; white-space: nowrap; }
+  .t-phx { color: var(--phx); border-color: rgba(255,140,66,0.3); background: rgba(255,140,66,0.08); }
+  .t-tuc { color: var(--tuc); border-color: rgba(123,108,255,0.3); background: rgba(123,108,255,0.08); }
+  .t-up { color: var(--up); border-color: rgba(62,207,142,0.3); background: rgba(62,207,142,0.08); }
+  .t-past { color: var(--dim); border-color: rgba(255,255,255,0.08); }
+  .t-fest { color: var(--fest); border-color: rgba(200,240,96,0.3); background: rgba(200,240,96,0.08); }
+  .t-genre { color: var(--muted); border-color: var(--border); }
+  .t-wwh { color: #e879f9; border-color: rgba(232,121,249,0.3); background: rgba(232,121,249,0.08); }
+  .t-live { color: var(--up); border-color: rgba(62,207,142,0.3); background: rgba(62,207,142,0.08); font-size: 9px; animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .lineup-row { display: none; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 14px 0 84px; }
+  .lineup-row.open { display: block; padding-bottom: 12px; }
+  .lineup-inner { border-top: 1px solid var(--border); padding-top: 10px; }
+  .lineup-day { margin-bottom: 8px; }
+  .lineup-day-label { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .lineup-artists { font-size: 12px; color: var(--muted); line-height: 1.7; }
+  .expand-hint { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 6px; }
+
+  .right-col { text-align: right; min-width: 110px; }
+  .price { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); }
+  .promoter { font-size: 11px; color: var(--muted); margin-top: 3px; max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; }
+  .tix { display: inline-block; margin-top: 6px; font-size: 10px; font-family: var(--mono); color: var(--accent2); text-decoration: none; border: 1px solid rgba(123,108,255,0.3); border-radius: 4px; padding: 2px 7px; transition: all 0.12s; }
+  .tix:hover { background: rgba(123,108,255,0.15); }
+
+  .empty { text-align: center; padding: 48px 16px; color: var(--muted); font-family: var(--mono); font-size: 13px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; margin-top: 12px; }
+
+  .footer { border-top: 1px solid var(--border); padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .footer span { font-size: 11px; color: var(--dim); font-family: var(--mono); }
+
+  @media (max-width: 640px) {
+    .header, .controls, .main, .footer { padding-left: 16px; padding-right: 16px; }
+    .stats { flex-wrap: wrap; }
+    .stat { min-width: calc(50% - 1px); }
+    .card { grid-template-columns: 48px 1fr; }
+    .right-col { display: none; }
+    .lineup-row { padding-left: 62px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Arizona <span>EDM</span> Calendar</h1>
+    <p>PHOENIX · TUCSON · COMPETITIVE INTELLIGENCE DASHBOARD</p>
+  </div>
+  <div class="badge" id="lastUpdated">Updated — · Click any show to expand lineup</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-label">Total Shows</div><div class="stat-val" id="sTot">—</div><div class="stat-sub">loaded</div></div>
+  <div class="stat"><div class="stat-label">Upcoming</div><div class="stat-val" id="sUp">—</div><div class="stat-sub">from today</div></div>
+  <div class="stat"><div class="stat-label">Phoenix Mkt</div><div class="stat-val" id="sPhx" style="color:var(--phx)">—</div><div class="stat-sub">shows</div></div>
+  <div class="stat"><div class="stat-label">Tucson Mkt</div><div class="stat-val" id="sTuc" style="color:var(--tuc)">—</div><div class="stat-sub">shows</div></div>
+</div>
+
+<div class="controls">
+  <div class="search-box"><span class="si">⌕</span><input type="text" id="srch" placeholder="Search artist, venue, lineup..." oninput="render()"></div>
+  <div class="btn-group">
+    <button class="fb on" id="bAll" onclick="setM('all')">All Arizona</button>
+    <button class="fb" id="bPhx" onclick="setM('phoenix')">Phoenix</button>
+    <button class="fb" id="bTuc" onclick="setM('tucson')">Tucson</button>
+  </div>
+  <div class="btn-group">
+    <button class="fb on" id="bUp" onclick="setT('upcoming')">Upcoming</button>
+    <button class="fb" id="bPast" onclick="setT('past')">Past</button>
+    <button class="fb" id="bAllT" onclick="setT('all')">All</button>
+  </div>
+  <div class="cpill" id="cp">— shows</div>
+</div>
+
+<div class="main"><div id="out"></div></div>
+
+<div class="footer">
+  <span>Arizona EDM Calendar · Internal use only</span>
+  <span>Sources: Ticketmaster API · Relentless Beats · Rialto Theatre · JamBase · Auto-updated weekly</span>
+</div>
+
+<script>
+// ── DATA injected by build script ──
+const EVENTS = window.__EVENTS__ || [];
+const BUILT_AT = window.__BUILT_AT__ || 'unknown';
+
+const NOW = new Date();
+let market = 'all', timeF = 'upcoming', openId = null;
+
+document.getElementById('lastUpdated').textContent =
+  'Data refreshed: ' + BUILT_AT + ' · Click any show to expand lineup';
+
+function setM(m){ market=m; document.getElementById('bAll').className='fb'+(m==='all'?' on':''); document.getElementById('bPhx').className='fb'+(m==='phoenix'?' on on-phx':''); document.getElementById('bTuc').className='fb'+(m==='tucson'?' on on-tuc':''); render(); }
+function setT(t){ timeF=t; document.getElementById('bUp').className='fb'+(t==='upcoming'?' on':''); document.getElementById('bPast').className='fb'+(t==='past'?' on':''); document.getElementById('bAllT').className='fb'+(t==='all'?' on':''); render(); }
+function pd(s){ const p=s.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
+function toggle(id){ openId = openId===id ? null : id; render(); }
+
+function lineupHTML(ev){
+  if(!ev.lineup||!ev.lineup.length) return '';
+  return ev.lineup.map(d=>`<div class="lineup-day"><div class="lineup-day-label">${d.day}</div><div class="lineup-artists">${d.artists}</div></div>`).join('');
+}
+
+function cardHTML(ev, idx){
+  const d=pd(ev.date); const isPast=d<NOW;
+  const mon=d.toLocaleString('en-US',{month:'short'}).toUpperCase();
+  const day=d.getDate(); const dow=d.toLocaleString('en-US',{weekday:'short'});
+  const mT=ev.market==='phoenix'?'<span class="tag t-phx">PHX</span>':'<span class="tag t-tuc">TUC</span>';
+  const tT=isPast?'<span class="tag t-past">past</span>':'<span class="tag t-up">upcoming</span>';
+  const fT=ev.fest?'<span class="tag t-fest">festival</span>':'';
+  const wT=ev.wwh?'<span class="tag t-wwh">Walter W?H</span>':'';
+  const lT=ev.source==='ticketmaster'?'<span class="tag t-live">● live data</span>':'';
+  const link=ev.url?`<a class="tix" href="${ev.url}" target="_blank" onclick="event.stopPropagation()">tickets ↗</a>`:'';
+  const hasLineup=ev.lineup&&ev.lineup.length;
+  const isOpen=openId===idx;
+  const hint=hasLineup?`<div class="expand-hint">${isOpen?'▲ collapse':'▼ click to see lineup'}</div>`:'';
+  const drawerOpen=isOpen&&hasLineup?'open':'';
+  return `<div class="card${isPast?' past':''}" onclick="toggle(${idx})">
+    <div class="date-col"><div class="d-mon">${mon}</div><div class="d-day">${day}</div><div class="d-dow">${dow}</div></div>
+    <div class="info-col">
+      <div class="artist">${ev.artist}</div>
+      <div class="venue">${ev.venue}${ev.city?', '+ev.city:''}</div>
+      <div class="tags">${mT}${tT}${fT}${wT}${lT}<span class="tag t-genre">${ev.genre||'Electronic'}</span></div>
+      ${hint}
+    </div>
+    <div class="right-col"><div class="price">${ev.price||'See tickets'}</div><div class="promoter">${ev.promoter||''}</div>${link}</div>
+  </div>
+  <div class="lineup-row ${drawerOpen}"><div class="lineup-inner">${lineupHTML(ev)}</div></div>`;
+}
+
+function render(){
+  const q=document.getElementById('srch').value.toLowerCase();
+  const fWithIdx=EVENTS.map((ev,i)=>({ev,i})).filter(({ev})=>{
+    const d=pd(ev.date); const isPast=d<NOW;
+    if(market!=='all'&&ev.market!==market) return false;
+    if(timeF==='upcoming'&&isPast) return false;
+    if(timeF==='past'&&!isPast) return false;
+    if(q){
+      const lineupStr=(ev.lineup||[]).map(l=>l.artists).join(' ').toLowerCase();
+      const hay=[ev.artist,ev.venue,ev.promoter||'',ev.genre||'',ev.city||'',lineupStr].join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  fWithIdx.sort((a,b)=>{ const da=pd(a.ev.date),db=pd(b.ev.date); return timeF==='past'?db-da:da-db; });
+
+  const upcoming=fWithIdx.filter(({ev})=>pd(ev.date)>=NOW);
+  const past=fWithIdx.filter(({ev})=>pd(ev.date)<NOW);
+
+  document.getElementById('sTot').textContent=EVENTS.length;
+  document.getElementById('sUp').textContent=EVENTS.filter(e=>pd(e.date)>=NOW).length;
+  document.getElementById('sPhx').textContent=EVENTS.filter(e=>e.market==='phoenix').length;
+  document.getElementById('sTuc').textContent=EVENTS.filter(e=>e.market==='tucson').length;
+  document.getElementById('cp').textContent=fWithIdx.length+' show'+(fWithIdx.length!==1?'s':'');
+
+  let html='';
+  if(timeF!=='past'&&upcoming.length){ if(timeF==='all') html+=`<div class="sec-head">Upcoming shows (${upcoming.length})</div>`; html+='<div class="events">'+upcoming.map(({ev,i})=>cardHTML(ev,i)).join('')+'</div>'; }
+  if(timeF!=='upcoming'&&past.length){ if(timeF==='all') html+=`<div class="sec-head">Past shows (${past.length})</div>`; html+='<div class="events">'+past.map(({ev,i})=>cardHTML(ev,i)).join('')+'</div>'; }
+  if(!fWithIdx.length) html='<div class="empty">No shows match your filters.</div>';
+  document.getElementById('out').innerHTML=html;
+}
+
+render();
+</script>
+</body>
+</html>

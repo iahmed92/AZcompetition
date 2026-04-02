@@ -1,0 +1,12 @@
+{
+  "name": "az-edm-calendar",
+  "version": "1.0.0",
+  "description": "Arizona EDM competitive intelligence calendar — auto-updated weekly",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && npx serve dist"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
