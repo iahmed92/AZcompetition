@@ -132,6 +132,20 @@ async function fetchTM(city, stateCode) {
 // ─── CURATED EVENTS (festivals + Walter WhereHouse + key shows) ─────────────
 // These supplement the Ticketmaster feed with verified lineup data
 const CURATED = [
+  // M3F (McDowell Mountain Music Festival) 2024
+  { artist:"M3F Festival 2024 — Day 1", venue:"Steele Indian School Park", city:"Phoenix", market:"phoenix", date:"2024-03-01", price:"$85–$185", promoter:"M3F Fest (nonprofit)", genre:"Festival (Electronic/Indie)", url:"https://www.m3ffest.com", fest:true, source:"curated",
+    lineup:[{ day:"Fri Mar 1", artists:"Dominic Fike, Lane 8, Gorgon City, SG Lewis, Duke Dumont, Elderbrook, GORDO, Poolside, WhoMadeWho, it's murph, Coco & Breezy, DRAMA, bunt., Edapollo, Young Franco, Dayglow, Bakar, Arlo Parks, Roosevelt, Vandelux, Fiji Blue, LEISURE, Tim Atlas, Jules Duke, Coast, Shifty, Barrett Bennett, KOL, Tommy Newport, Hippo Campus" }]},
+  { artist:"M3F Festival 2024 — Day 2", venue:"Steele Indian School Park", city:"Phoenix", market:"phoenix", date:"2024-03-02", price:"$85–$185", promoter:"M3F Fest (nonprofit)", genre:"Festival (Electronic/Indie)", url:"https://www.m3ffest.com", fest:true, source:"curated" },
+  // M3F 2025
+  { artist:"M3F Festival 2025 — Day 1", venue:"Steele Indian School Park", city:"Phoenix", market:"phoenix", date:"2025-03-07", price:"$110–$185", promoter:"M3F Fest (nonprofit)", genre:"Festival (Electronic/Indie)", url:"https://www.m3ffest.com", fest:true, source:"curated",
+    lineup:[{ day:"Fri Mar 7", artists:"LCD Soundsystem (headliner), Alvvays, alice.km, BADBADNOTGOOD, Braxe + Falcon, Dev Lemons, Hippie Sabotage, late night drive home, LP Giobbi, Orions Belte, Pariah Pete, Ricky Montgomery, Slow Pulp, Summer Salt, TEED" }]},
+  { artist:"M3F Festival 2025 — Day 2", venue:"Steele Indian School Park", city:"Phoenix", market:"phoenix", date:"2025-03-08", price:"$110–$185", promoter:"M3F Fest (nonprofit)", genre:"Festival (Electronic/Indie)", url:"https://www.m3ffest.com", fest:true, source:"curated",
+    lineup:[{ day:"Sat Mar 8", artists:"Justice (headliner), Sylvan Esso, ALEXSUCKS, BAYNK, Beach Weather, Chloe Tang, Confidence Man, Doss, Eggy, Frost Children, Girl Talk, Goldwax Revival, LEISURE, Luna Luna, Mindchatter, Monster Rally, The Strike, Upsahl" }]},
+  // M3F 2026
+  { artist:"M3F Festival 2026 — Day 1", venue:"Steele Indian School Park", city:"Phoenix", market:"phoenix", date:"2026-03-06", price:"$110–$185", promoter:"M3F Fest (nonprofit)", genre:"Festival (Electronic/Indie)", url:"https://www.m3ffest.com", fest:true, source:"curated",
+    lineup:[{ day:"Fri Mar 6 — Vista / Cosmic / Day Dream stages", artists:"Peggy Gou (headliner), Big Wild, Chris Lorenzo, La Roux, TOKiMONSTA, Mild Minds, Neil Frances, RaeCola, jigitz, Rio Kosta, Artemas, Cuco, Magdalena Bay, Thxbby, The Kaleidoscope Kid, Peachy Keen" }]},
+  { artist:"M3F Festival 2026 — Day 2", venue:"Steele Indian School Park", city:"Phoenix", market:"phoenix", date:"2026-03-07", price:"$110–$185", promoter:"M3F Fest (nonprofit)", genre:"Festival (Electronic/Indie)", url:"https://www.m3ffest.com", fest:true, source:"curated",
+    lineup:[{ day:"Sat Mar 7 — Vista / Cosmic / Day Dream stages", artists:"Mau P (headliner), Polo & Pan, Elderbrook, Dora Jar, The Knocks, Nimino, 2hollis, salute, Avery Cochrane, Loukeman, Of The Trees, Daily Bread, After, Bricknasty, SEES00000, Kol, Country Night, Barrett, Hostel, Tommy Toole" }]},
   // PHXLIGHTS Supernova 2024
   { artist:"PHXLIGHTS: Supernova 2024", venue:"Phoenix Raceway", city:"Avondale", market:"phoenix", date:"2024-03-29", price:"$60–$150", promoter:"Relentless Beats", genre:"Festival (EDM)", url:"https://relentlessbeats.com", fest:true, source:"curated",
     lineup:[
