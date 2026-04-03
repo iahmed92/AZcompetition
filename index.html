@@ -59,6 +59,7 @@
   .d-mon { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
   .d-day { font-family: var(--mono); font-size: 22px; font-weight: 500; color: var(--text); line-height: 1; margin: 2px 0; }
   .d-dow { font-family: var(--mono); font-size: 9px; color: var(--dim); }
+  .d-yr { font-family: var(--mono); font-size: 9px; color: var(--dim); margin-top: 1px; }
 
   .info-col { min-width: 0; }
   .artist { font-size: 14px; font-weight: 500; color: var(--text); }
@@ -168,6 +169,7 @@ function cardHTML(ev, idx){
   const d=pd(ev.date); const isPast=d<NOW;
   const mon=d.toLocaleString('en-US',{month:'short'}).toUpperCase();
   const day=d.getDate(); const dow=d.toLocaleString('en-US',{weekday:'short'});
+  const yr=d.getFullYear();
   const mT=ev.market==='phoenix'?'<span class="tag t-phx">PHX</span>':'<span class="tag t-tuc">TUC</span>';
   const tT=isPast?'<span class="tag t-past">past</span>':'<span class="tag t-up">upcoming</span>';
   const fT=ev.fest?'<span class="tag t-fest">festival</span>':'';
@@ -179,7 +181,7 @@ function cardHTML(ev, idx){
   const hint=hasLineup?`<div class="expand-hint">${isOpen?'▲ collapse':'▼ click to see lineup'}</div>`:'';
   const drawerOpen=isOpen&&hasLineup?'open':'';
   return `<div class="card${isPast?' past':''}" onclick="toggle(${idx})">
-    <div class="date-col"><div class="d-mon">${mon}</div><div class="d-day">${day}</div><div class="d-dow">${dow}</div></div>
+    <div class="date-col"><div class="d-mon">${mon}</div><div class="d-day">${day}</div><div class="d-dow">${dow}</div><div class="d-yr">${yr}</div></div>
     <div class="info-col">
       <div class="artist">${ev.artist}</div>
       <div class="venue">${ev.venue}${ev.city?', '+ev.city:''}</div>

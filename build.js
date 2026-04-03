@@ -41,11 +41,17 @@ const MARKETS = [
 
 const EDM_KEYWORDS = ['edm','electronic','rave','techno','house','dubstep','bass','festival','dnb','drum and bass','trance','club','dj'];
 
+// Venues to exclude from TM results (not relevant to AZ EDM competitive landscape)
+const EXCLUDED_VENUES = ['valley bar', 'crescent ballroom', 'celebrity theatre', 'talking stick resort arena', 'footprint center', 'ak-chin pavilion'];
+
 function isEDM(event) {
   const name = (event.name || '').toLowerCase();
   const genre = ((event.classifications?.[0]?.genre?.name) || '').toLowerCase();
   const subgenre = ((event.classifications?.[0]?.subGenre?.name) || '').toLowerCase();
   const segment = ((event.classifications?.[0]?.segment?.name) || '').toLowerCase();
+  const venueName = (event._embedded?.venues?.[0]?.name || '').toLowerCase();
+  // Exclude non-EDM venues
+  if (EXCLUDED_VENUES.some(v => venueName.includes(v))) return false;
   const combined = [name, genre, subgenre, segment].join(' ');
   // Must be Music segment
   if (segment && segment !== 'music') return false;
@@ -188,7 +194,7 @@ const CURATED = [
   { artist:"Breakaway Arizona 2025 — Day 1", venue:"Sloan Park Festival Grounds", city:"Mesa", market:"phoenix", date:"2025-04-18", price:"$30–$200+", promoter:"Breakaway × Relentless Beats", genre:"Festival (Multi-genre)", url:"https://www.breakawayfestival.com/festival/arizona-2025", fest:true, source:"curated",
     lineup:[{ day:"Apr 18 (Fri)", artists:"The Chainsmokers, Gryffin, Two Friends, Audien, Wax Motif, PEEKABOO, Moore Kismet, Coco & Breezy, Zerb, Levity, Daniel Allen, Frank Walker, Koastle, Night Tales, Sidequest, Skilah, Tommy Toole" }]},
   { artist:"Breakaway Arizona 2025 — Day 2", venue:"Sloan Park Festival Grounds", city:"Mesa", market:"phoenix", date:"2025-04-19", price:"$30–$200+", promoter:"Breakaway × Relentless Beats", genre:"Festival (Multi-genre)", url:"", fest:true, source:"curated",
-    lineup:[{ day:"Apr 19 (Sat)", artists:"Sofi Tukker (DJ Set), Cyclops, Juelz + more" }]},
+    lineup:[{ day:"Sat Apr 19", artists:"Gryffin (headliner), Sofi Tukker (DJ Set), Two Friends, PEEKABOO, Moore Kismet, Coco & Breezy, Cyclops, Juelz, Levity, Klo, Afterparty, Casti, Sidequest, Skilah, Tommy Toole, Frank Walker, Daniel Allen" }]},
   // PHXLIGHTS Solar System 2025
   { artist:"PHXLIGHTS: Solar Sound System 2025 — Day 1", venue:"Phoenix Raceway", city:"Avondale", market:"phoenix", date:"2025-04-04", price:"$129–$250+", promoter:"Relentless Beats", genre:"Festival (EDM)", url:"https://phxlightsfest.com", fest:true, source:"curated",
     lineup:[{ day:"Apr 4 (Fri) — The Mothership / The Invasion / The Fallout Silent Disco", artists:"NGHTMRE (headliner), Said The Sky, It's Murph, Hybrid Minds, Edward Joseph, Zero" }]},
@@ -335,10 +341,19 @@ const CURATED = [
   { artist:"The Botanist + Rafael + Valerie Stoss", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-01", price:"$20–$35", promoter:"Walter Where?House", genre:"Organic House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 1", artists:"The Botanist, Rafael, Valerie Stoss" }]},
   { artist:"N2N + ero808", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-09", price:"$20–$35", promoter:"Walter Where?House", genre:"House/Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 9", artists:"N2N, ero808" }]},
   { artist:"Effy + Mall Grab + Alix Rico", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-15", price:"$20–$35", promoter:"Walter Where?House", genre:"Lo-fi House/Techno", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 15", artists:"Effy, Mall Grab, Alix Rico" }]},
+  { artist:"Poranguí", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-16", price:"$20–$35", promoter:"Walter Where?House", genre:"World / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"Kitty Kat Ball", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-19", price:"$20–$35", promoter:"Walter Where?House", genre:"House / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"Definitive + Toman + Casey Zanni", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-22", price:"$20–$35", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 22", artists:"Definitive, Toman, Casey Zanni" }]},
+  { artist:"Ranger Trucco", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-23", price:"$20–$35", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"Hot Since 82 + Anatta", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-24", price:"$25–$45", promoter:"Walter Where?House", genre:"Deep House / Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 24", artists:"Hot Since 82, Anatta" }]},
+  { artist:"idgaFNK + Eazybaked + Distinct Motive", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-31", price:"$20–$35", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 31", artists:"idgaFNK, Eazybaked, Distinct Motive" }]},
+  { artist:"idgaFNK + Taiki Nulight", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-06-05", price:"$20–$35", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jun 5", artists:"idgaFNK, Taiki Nulight" }]},
+  { artist:"Big Gigantic: 360 House Party + Smoakland", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-08-01", price:"$25–$45", promoter:"Walter Where?House", genre:"Funk / Electronic / Live", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Aug 1 — 360 House Party", artists:"Big Gigantic (live), Smoakland" }]},
   // Breakaway 2026
   { artist:"Breakaway Arizona 2026 — Day 1", venue:"Sloan Park Festival Grounds", city:"Mesa", market:"phoenix", date:"2026-04-24", price:"$30–$200+", promoter:"Breakaway × Relentless Beats", genre:"Festival (Multi-genre)", url:"https://www.breakawayfestival.com/festival/arizona-2026", fest:true, source:"curated",
-    lineup:[{ day:"Apr 24–25", artists:"Marshmello, Kygo, ISOxo, James Hype, Dr. Fresch, Effin, Grabbitz, Loud Luxury, Mersiv, Cassian, TRUTH, Angrybaby, Xandra, ALIGN, SHIMA, Steller, Jon Casey, MPH, Arthi, Disco Dom, Delato, Leesh, Livviep" }]},
-  { artist:"Breakaway Arizona 2026 — Day 2", venue:"Sloan Park Festival Grounds", city:"Mesa", market:"phoenix", date:"2026-04-25", price:"$30–$200+", promoter:"Breakaway × Relentless Beats", genre:"Festival (Multi-genre)", url:"", fest:true, source:"curated" },
+    lineup:[{ day:"Fri Apr 24 — (day-by-day splits TBA; full festival lineup)", artists:"Marshmello, Kygo, ISOxo, James Hype, Loud Luxury, Dr. Fresch, Effin, Grabbitz, Mersiv, Cassian, TRUTH, Angrybaby, Xandra, ALIGN, SHIMA, Steller, Jon Casey, MPH, Arthi, Disco Dom, Delato, Leesh, Livviep" }]},
+  { artist:"Breakaway Arizona 2026 — Day 2", venue:"Sloan Park Festival Grounds", city:"Mesa", market:"phoenix", date:"2026-04-25", price:"$30–$200+", promoter:"Breakaway × Relentless Beats", genre:"Festival (Multi-genre)", url:"", fest:true, source:"curated",
+    lineup:[{ day:"Sat Apr 25 — (day-by-day splits TBA; full festival lineup)", artists:"Kygo, ISOxo, James Hype, Loud Luxury, Dr. Fresch, Mersiv, Grabbitz, Jon Casey, TRUTH, Stellar, Effin, MPH, Cassian, Disco Dom, Angrybaby, SHIMA, Xandra, ALIGN, Arthi, Delato, Leesh, Livviep" }]},
   // System Overload 2026 (debut bass festival — Relentless Beats / Aftershock)
   { artist:"System Overload 2026 — Night 1", venue:"Rawhide Event Center", city:"Chandler", market:"phoenix", date:"2026-02-27", price:"$55–$120", promoter:"Relentless Beats / Aftershock", genre:"Festival (Bass/Dubstep)", url:"https://relentlessbeats.com", fest:true, source:"curated",
     lineup:[{ day:"Feb 27–28 (18+)", artists:"SLANDER, Wooli, Liquid Stranger, NGHTMRE, Eptic, HOL!, Akeos, Blvnkspvce b2b Sqishi, Bommer, Canabliss, Codd Dubz, Don Jamal, M?stic, MADVKTM (Mad Dubz b2b VKTM), Mile32, Richard Finger, Samplifire, Sisto b2b 7L, Stoned to Death, Sythyst b2b Hexxa, The Resistance, Warlord" }]},
