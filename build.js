@@ -33,6 +33,83 @@ function get(url) {
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+function getHtml(url) {
+  return new Promise((resolve, reject) => {
+    const req = https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; AZEDMCalendar/1.0)' } }, res => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        return getHtml(res.headers.location).then(resolve).catch(reject);
+      }
+      let data = '';
+      res.on('data', c => data += c);
+      res.on('end', () => resolve(data));
+    });
+    req.on('error', reject);
+  });
+}
+
+function rbToEvent(item) {
+  const venueName = item.location?.Name || item.location?.name || '';
+  const addr = item.location?.Address || item.location?.address || '';
+  const addrStr = typeof addr === 'string' ? addr
+    : [(addr.streetAddress||''), (addr.addressLocality||''), (addr.addressRegion||'')].join(' ');
+
+  // AZ only
+  if (!/\bAZ\b|arizona/i.test(addrStr)) return null;
+
+  const cityMatch = addrStr.match(/,\s*([^,]+),\s*AZ/i);
+  const city = cityMatch ? cityMatch[1].trim() : '';
+  const market = /tucson/i.test(addrStr) ? 'tucson' : 'phoenix';
+
+  const dateStr = (item.startDate || '').slice(0, 10);
+  if (!dateStr) return null;
+
+  return {
+    artist: item.name || '',
+    venue: venueName,
+    city,
+    market,
+    date: dateStr,
+    price: 'See tickets',
+    promoter: 'Relentless Beats',
+    genre: 'Electronic',
+    url: item.url || 'https://relentlessbeats.com',
+    source: 'relentlessbeats',
+    fest: false,
+    lineup: [],
+  };
+}
+
+async function fetchRB() {
+  const events = [];
+  for (let page = 1; page <= 6; page++) {
+    const url = page === 1
+      ? 'https://relentlessbeats.com/events/'
+      : `https://relentlessbeats.com/events/page/${page}/`;
+    console.log(`  Fetching RB page ${page}...`);
+    let html;
+    try { html = await getHtml(url); }
+    catch(e) { console.warn(`  RB fetch failed page ${page}:`, e.message); break; }
+
+    const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
+    let found = 0;
+    for (const [, raw] of blocks) {
+      try {
+        const data = JSON.parse(raw);
+        for (const item of (Array.isArray(data) ? data : [data])) {
+          if (item['@type'] === 'MusicEvent') {
+            const ev = rbToEvent(item);
+            if (ev && ev.artist) { events.push(ev); found++; }
+          }
+        }
+      } catch(e) { /* skip malformed */ }
+    }
+    if (found === 0) break;
+    await sleep(500);
+  }
+  console.log(`  RB total AZ events found: ${events.length}`);
+  return events;
+}
+
 // Ticketmaster city codes + radius
 const MARKETS = [
   { id: 'phoenix',  dma: 'Phoenix',  stateCode: 'AZ', city: 'Phoenix'  },
@@ -602,12 +679,23 @@ async function main() {
     }
   }
 
-  // Dedup TM events against curated
+  // Fetch Relentless Beats events (catches non-Ticketmaster shows)
+  console.log('Fetching Relentless Beats data...');
+  let rbEvents = [];
+  try {
+    rbEvents = await fetchRB();
+  } catch(err) {
+    console.warn('  Warning: RB scrape failed:', err.message);
+  }
+
+  // Dedup TM and RB events against curated, then against each other
   const tmFiltered = dedup(tmRaw, CURATED);
   console.log(`TM events after dedup: ${tmFiltered.length}`);
+  const rbFiltered = dedup(rbEvents, [...CURATED, ...tmFiltered]);
+  console.log(`RB events after dedup: ${rbFiltered.length}`);
 
-  // Merge: curated first (authoritative), then TM additions
-  const allEvents = [...CURATED, ...tmFiltered];
+  // Merge: curated first (authoritative), then TM, then RB additions
+  const allEvents = [...CURATED, ...tmFiltered, ...rbFiltered];
 
   // Sort by date
   allEvents.sort((a, b) => a.date.localeCompare(b.date));
