@@ -479,6 +479,7 @@ const CURATED = [
   { artist:"ARMNHMR", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2025-10-03", price:"$30–$50", promoter:"Relentless Beats / Live Nation", genre:"Future Bass / Melodic Bass", url:"https://relentlessbeats.com", source:"curated" },
   { artist:"it's murph", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2025-11-21", price:"$30–$50", promoter:"Relentless Beats / Live Nation", genre:"Electronic", url:"https://relentlessbeats.com", source:"curated" },
   { artist:"Ray Volpe", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2026-01-30", price:"$25–$40", promoter:"Relentless Beats / Live Nation", genre:"Riddim / Dubstep", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Jessica Audiffred", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2026-06-20", price:"$25–$40", promoter:"Relentless Beats / Live Nation", genre:"Bass Music / Dubstep", url:"https://relentlessbeats.com", source:"curated" },
 
   // ── Clubhouse at Maya — Scottsdale nightclub (Oct 2024 – Apr 2026) ─────────
   { artist:"Joyryde", venue:"Clubhouse at Maya", city:"Scottsdale", market:"phoenix", date:"2024-10-12", price:"$20–$35", promoter:"Relentless Beats / RHG & Spellbound", genre:"House / Electronic", url:"https://relentlessbeats.com", source:"curated" },
