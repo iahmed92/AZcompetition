@@ -427,7 +427,7 @@ const CURATED = [
   { artist:"Definitive + Toman + Casey Zanni", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-22", price:"$20–$35", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 22", artists:"Definitive, Toman, Casey Zanni" }]},
   { artist:"Ranger Trucco", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-23", price:"$20–$35", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
   { artist:"Hot Since 82 + Anatta", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-24", price:"$25–$45", promoter:"Walter Where?House", genre:"Deep House / Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 24", artists:"Hot Since 82, Anatta" }]},
-  { artist:"idgaFNK + Eazybaked + Distinct Motive", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-31", price:"$20–$35", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 31", artists:"idgaFNK, Eazybaked, Distinct Motive" }]},
+  { artist:"idgaFNK + Eazybaked + Distinct Motive", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-30", price:"$20–$35", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 30", artists:"idgaFNK, Eazybaked, Distinct Motive" }]},
   { artist:"idgaFNK + Taiki Nulight", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-06-05", price:"$20–$35", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jun 5", artists:"idgaFNK, Taiki Nulight" }]},
   { artist:"SIPPY + Flozone b2b OkayJake — Rooftop Pool Party", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-06-20", price:"$20–$35", promoter:"Walter Where?House", genre:"House / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jun 20 — Rooftop Pool Party (3 PM)", artists:"SIPPY, Flozone b2b OkayJake" }]},
   { artist:"Big Gigantic: 360 House Party + Smoakland", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-08-01", price:"$25–$45", promoter:"Walter Where?House", genre:"Funk / Electronic / Live", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Aug 1 — 360 House Party", artists:"Big Gigantic (live), Smoakland" }]},
@@ -634,6 +634,80 @@ const CURATED = [
   { artist:"Wuki", venue:"Maya Dayclub", city:"Scottsdale", market:"phoenix", date:"2026-05-03", price:"$20–$35", promoter:"Relentless Beats / Riot Hospitality", genre:"Electro House / Bass", url:"https://relentlessbeats.com", source:"curated" },
   { artist:"Roddy Lima", venue:"Maya Dayclub", city:"Scottsdale", market:"phoenix", date:"2026-05-22", price:"$20–$35", promoter:"Relentless Beats / Riot Hospitality", genre:"Tech House", url:"https://relentlessbeats.com", source:"curated" },
   { artist:"San Pacho", venue:"Maya Dayclub", city:"Scottsdale", market:"phoenix", date:"2026-05-24", price:"$20–$35", promoter:"Relentless Beats / Riot Hospitality", genre:"Tech House", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Walter Where?House — new 2026 shows ────────────────────────────────────
+  { artist:"Claude VonStroke (Wrong # Tour) + Millero + Jasper Crenshaw", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-05-29", price:"$20–$35", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"May 29", artists:"Claude VonStroke, Millero, Jasper Crenshaw" }]},
+  { artist:"Bontan + Ms. Mada — Season Closing Party", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-06-06", price:"$10–$20", promoter:"Walter Where?House", genre:"Tech House / Deep House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jun 6", artists:"Bontan, Ms. Mada" }]},
+  { artist:"JUNE JAM 2026", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-06-12", price:"See tickets", promoter:"Walter Where?House", genre:"House / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jun 12–14 (3-day event)", artists:"Multi-artist summer festival weekend — lineup TBA" }]},
+  { artist:"Sun Sequence w. Odd Mob", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-07-05", price:"See tickets", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jul 5", artists:"Odd Mob" }]},
+  { artist:"Sun Sequence w. AHEE", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-07-18", price:"See tickets", promoter:"Walter Where?House", genre:"Electronic / Bass", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jul 18", artists:"AHEE" }]},
+  { artist:"Sun Sequence w. Justin Martin", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-08-22", price:"See tickets", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Aug 22", artists:"Justin Martin" }]},
+  { artist:"WonkyWilla's Galactic Circus w. smith. & Buku", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-09-26", price:"See tickets", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Sep 26", artists:"smith., Buku" }]},
+
+  // ── Sunbar Tempe — new 2026 shows (Darkstar closed Jan 31 2026; shows moved here) ─
+  { artist:"ZERO", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-05-29", price:"$15–$25", promoter:"Relentless Beats", genre:"Bass / Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Tynan", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-05-30", price:"$15–$25", promoter:"Relentless Beats", genre:"Melodic Bass", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Vampa", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-06-05", price:"$15–$25", promoter:"Relentless Beats", genre:"Techno / Hard Techno", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Sweettooth x DMZ News", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-06-06", price:"$15–$25", promoter:"Relentless Beats", genre:"Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"K?D", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-06-12", price:"$20–$30", promoter:"Relentless Beats", genre:"Bass / Experimental Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Giorgia Angiuli", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-06-13", price:"$15–$25", promoter:"Relentless Beats", genre:"Melodic Techno / Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Champion", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-06-26", price:"$15–$25", promoter:"Relentless Beats", genre:"UK Garage / Bass", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Rommii", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-06-27", price:"$15–$25", promoter:"Relentless Beats", genre:"Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Nero", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-07-02", price:"$20–$30", promoter:"Relentless Beats", genre:"Drum & Bass / Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Close Friends Only", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-07-03", price:"$15–$25", promoter:"Relentless Beats", genre:"Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Emmit Fenn", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-07-10", price:"$15–$25", promoter:"Relentless Beats", genre:"Melodic Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Dirt Monkey", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-07-18", price:"$15–$25", promoter:"Relentless Beats", genre:"Bass / Dubstep", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Gareth Emery", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-07-24", price:"$20–$30", promoter:"Relentless Beats", genre:"Trance / Progressive", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Versa", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-07-25", price:"$15–$25", promoter:"Relentless Beats", genre:"Electronic / Bass", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Adam Sellouk", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-08-22", price:"$15–$25", promoter:"Relentless Beats", genre:"Tech House", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Flux Pavilion", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-08-28", price:"$20–$30", promoter:"Relentless Beats", genre:"Dubstep / Bass", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Jason Ross", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-09-05", price:"$20–$30", promoter:"Relentless Beats", genre:"Melodic Bass / Progressive", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Almost Famous — Scottsdale club shows ──────────────────────────────────
+  { artist:"SAVI", venue:"Almost Famous", city:"Scottsdale", market:"phoenix", date:"2026-05-30", price:"$15–$25", promoter:"Relentless Beats", genre:"Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"JAMØ", venue:"Almost Famous", city:"Scottsdale", market:"phoenix", date:"2026-06-13", price:"$15–$25", promoter:"Relentless Beats", genre:"Tech House / Deep House", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Gila River Resorts – Wild Horse Pass — standalone shows ────────────────
+  { artist:"Green Velvet", venue:"Gila River Resorts & Casinos – Wild Horse Pass", city:"Chandler", market:"phoenix", date:"2026-05-30", price:"$25–$50", promoter:"Relentless Beats", genre:"Tech House / House", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Kai Wachi", venue:"Gila River Resorts & Casinos – Wild Horse Pass", city:"Chandler", market:"phoenix", date:"2026-06-20", price:"$25–$50", promoter:"Relentless Beats", genre:"Bass / Dubstep", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Meduza", venue:"Gila River Resorts & Casinos – Wild Horse Pass", city:"Chandler", market:"phoenix", date:"2026-07-04", price:"$35–$65", promoter:"Relentless Beats", genre:"Deep House / Melodic House", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── 9th & Jackson — new shows ──────────────────────────────────────────────
+  { artist:"SayMyName + Mariana Bo", venue:"9th & Jackson", city:"Phoenix", market:"phoenix", date:"2026-05-30", price:"$25–$40", promoter:"9th & Jackson", genre:"Bass House / Tech House", url:"https://9thandjacksonphx.com", source:"curated", lineup:[{ day:"May 30", artists:"SayMyName, Mariana Bo" }]},
+  { artist:"Red, White & Bass", venue:"9th & Jackson", city:"Phoenix", market:"phoenix", date:"2026-07-04", price:"$25–$40", promoter:"9th & Jackson", genre:"Electronic / Bass", url:"https://9thandjacksonphx.com", source:"curated" },
+
+  // ── Maya Day + Night — Scottsdale (new 2026 pool season shows) ─────────────
+  { artist:"SG Lewis", venue:"Maya Day + Night", city:"Scottsdale", market:"phoenix", date:"2026-06-14", price:"$35–$55", promoter:"Relentless Beats / Riot Hospitality", genre:"Indie Electronic / Dance", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Said The Sky", venue:"Maya Day + Night", city:"Scottsdale", market:"phoenix", date:"2026-06-28", price:"$35–$55", promoter:"Relentless Beats / Riot Hospitality", genre:"Melodic Bass / Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"BLOND:ISH", venue:"Maya Day + Night", city:"Scottsdale", market:"phoenix", date:"2026-07-26", price:"$35–$55", promoter:"Relentless Beats / Riot Hospitality", genre:"Tech House / Deep House", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Gentle Ben's — Tucson club shows ──────────────────────────────────────
+  { artist:"Dion Timmer", venue:"Gentle Ben's", city:"Tucson", market:"tucson", date:"2026-07-03", price:"$15–$25", promoter:"Relentless Beats", genre:"Dubstep / Bass", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Hi I'm Ghost", venue:"Gentle Ben's", city:"Tucson", market:"tucson", date:"2026-07-24", price:"$15–$25", promoter:"Relentless Beats", genre:"Bass / Dubstep", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"MADVKTM", venue:"Gentle Ben's", city:"Tucson", market:"tucson", date:"2026-08-14", price:"$15–$25", promoter:"Relentless Beats", genre:"Bass / Dubstep", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"Jason Ross", venue:"Gentle Ben's", city:"Tucson", market:"tucson", date:"2026-08-28", price:"$15–$25", promoter:"Relentless Beats", genre:"Melodic Bass / Progressive", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Rawhide Event Center — new standalone shows ────────────────────────────
+  { artist:"Tape B", venue:"Rawhide Event Center", city:"Chandler", market:"phoenix", date:"2026-08-29", price:"$35–$65", promoter:"Relentless Beats", genre:"Tech House", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Mesa Amphitheater — new shows ─────────────────────────────────────────
+  { artist:"Zeds Dead", venue:"Mesa Amphitheater", city:"Mesa", market:"phoenix", date:"2026-09-18", price:"$35–$65", promoter:"Live Nation", genre:"Dubstep / Drum & Bass", url:"https://mesaamp.com", source:"curated" },
+  { artist:"ZHU: ON THE MOVE", venue:"Mesa Amphitheater", city:"Mesa", market:"phoenix", date:"2026-10-16", price:"$35–$65", promoter:"Live Nation", genre:"Electronic / Deep House", url:"https://mesaamp.com", source:"curated" },
+
+  // ── The Van Buren — new Phoenix shows ─────────────────────────────────────
+  { artist:"Tinlicker", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2026-10-07", price:"$25–$40", promoter:"Relentless Beats / Live Nation", genre:"Melodic House & Techno", url:"https://www.ticketmaster.com/event/1900648FDF639CB3", source:"curated" },
+  { artist:"Madeon presents Victory Live", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2026-10-15", price:"$30–$50", promoter:"Relentless Beats / Live Nation", genre:"Electro Pop / Dance", url:"https://www.ticketmaster.com/event/190064A477614C82", source:"curated" },
+  { artist:"Whethan", venue:"The Van Buren", city:"Phoenix", market:"phoenix", date:"2026-11-07", price:"$25–$40", promoter:"Relentless Beats / Live Nation", genre:"Future Bass / Electronic", url:"https://www.ticketmaster.com/event/190064B5EC549C5F", source:"curated" },
+
+  // ── La Rosa — Tucson shows ─────────────────────────────────────────────────
+  { artist:"Madeon", venue:"La Rosa", city:"Tucson", market:"tucson", date:"2026-10-14", price:"$25–$40", promoter:"Independent", genre:"Electro Pop / Electronic", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── Coconino Campout 2026 — Flagstaff festival ─────────────────────────────
+  { artist:"Coconino Campout 2026", venue:"Pepsi Amphitheater", city:"Flagstaff", market:"phoenix", date:"2026-06-26", price:"See tickets", promoter:"Independent", genre:"Festival (Bass/Electronic)", url:"https://coconinocampout.com", fest:true, source:"curated",
+    lineup:[{ day:"Jun 26–27", artists:"NGHTMRE, ATLiens, Ray Volpe, DRINKURWATER, Blossom, Klo, Ghengar, Mystic Methods, Saka, TVBOO, Hevnfall, Livviep" }]},
+
+  // ── Crescent Ballroom — Phoenix ────────────────────────────────────────────
+  { artist:"Aaron Hibell", venue:"Crescent Ballroom", city:"Phoenix", market:"phoenix", date:"2026-06-23", price:"$20–$30", promoter:"Independent", genre:"Melodic Techno / Electronic", url:"https://relentlessbeats.com", source:"curated" },
 ];
 
 // deduplicate: if a TM event matches a curated event on same date+similar artist name, prefer curated
