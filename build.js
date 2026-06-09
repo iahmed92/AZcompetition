@@ -690,6 +690,15 @@ const CURATED = [
   // ── Rawhide Event Center — new standalone shows ────────────────────────────
   { artist:"Tape B", venue:"Rawhide Event Center", city:"Chandler", market:"phoenix", date:"2026-08-29", price:"$35–$65", promoter:"Relentless Beats", genre:"Tech House", url:"https://relentlessbeats.com", source:"curated" },
 
+  // ── Night Trip Festival Arizona 2026 ───────────────────────────────────────
+  { artist:"Night Trip Festival Arizona 2026", venue:"WestWorld of Scottsdale (North Hall)", city:"Scottsdale", market:"phoenix", date:"2026-08-29", price:"See tickets", promoter:"Insomniac / Day Trip", genre:"Tech House / Deep House", url:"https://arizona.daytripfest.com", fest:true, source:"curated",
+    lineup:[{ day:"Aug 29 (Sat) — 18+, 6 PM–2 AM", artists:"Lineup TBA — follow @DayTripFest" }]},
+
+  // ── BOO Arizona 2026 (Insomniac Halloween) ────────────────────────────────
+  { artist:"BOO Arizona 2026 — Night 1", venue:"WestWorld of Scottsdale", city:"Scottsdale", market:"phoenix", date:"2026-10-30", price:"See tickets", promoter:"Insomniac / Relentless Beats", genre:"Festival (Multi-genre / Halloween)", url:"https://relentlessbeats.com", fest:true, source:"curated",
+    lineup:[{ day:"Oct 30–31 (18+)", artists:"Lineup TBA — follow @InsomniacEvents" }]},
+  { artist:"BOO Arizona 2026 — Night 2 (Halloween)", venue:"WestWorld of Scottsdale", city:"Scottsdale", market:"phoenix", date:"2026-10-31", price:"See tickets", promoter:"Insomniac / Relentless Beats", genre:"Festival (Multi-genre / Halloween)", url:"", fest:true, source:"curated" },
+
   // ── Mesa Amphitheater — new shows ─────────────────────────────────────────
   { artist:"Zeds Dead", venue:"Mesa Amphitheater", city:"Mesa", market:"phoenix", date:"2026-09-18", price:"$35–$65", promoter:"Live Nation", genre:"Dubstep / Drum & Bass", url:"https://mesaamp.com", source:"curated" },
   { artist:"ZHU: ON THE MOVE", venue:"Mesa Amphitheater", city:"Mesa", market:"phoenix", date:"2026-10-16", price:"$35–$65", promoter:"Live Nation", genre:"Electronic / Deep House", url:"https://mesaamp.com", source:"curated" },
