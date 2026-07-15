@@ -444,9 +444,9 @@ const CURATED = [
   { artist:"Crankdat", venue:"Rawhide Event Center", city:"Chandler", market:"phoenix", date:"2026-05-09", price:"$95+", promoter:"Relentless Beats / Aftershock", genre:"Bass/Dubstep", url:"https://relentlessbeats.com", source:"curated",
     lineup:[{ day:"May 9", artists:"Crankdat, Zingara, Zen Selekta, Casey Club" }]},
   // Goldrush Midnight Riders 2026
-  { artist:"Goldrush: Midnight Riders 2026 — Night 1", venue:"Rawhide Western Town", city:"Chandler", market:"phoenix", date:"2026-09-11", price:"$227+", promoter:"Relentless Beats", genre:"Festival (Multi-genre)", url:"https://relentlessbeats.com", fest:true, source:"curated",
-    lineup:[{ day:"Sep 11–12", artists:"Lineup TBA — follow @GoldrushFestAZ" }]},
-  { artist:"Goldrush: Midnight Riders 2026 — Night 2", venue:"Rawhide Western Town", city:"Chandler", market:"phoenix", date:"2026-09-12", price:"$227+", promoter:"Relentless Beats", genre:"Festival (Multi-genre)", url:"", fest:true, source:"curated" },
+  { artist:"Goldrush: Midnight Riders 2026 — Night 1", venue:"Rawhide Western Town", city:"Chandler", market:"phoenix", date:"2026-09-11", price:"$249.99+", promoter:"Relentless Beats", genre:"Festival (Multi-genre)", url:"https://relentlessbeats.com/events/goldrush-midnight-riders-2026-rawhide-western-town-091126/", fest:true, source:"curated",
+    lineup:[{ day:"Sep 11–12 (Phase 1, day-by-day TBA)", artists:"Alesso, deadmau5, GRiZ, Martin Garrix, AC Slater, Airrica, Boogie T, Broken Hill, CID, Deathpact, Delta Heavy, DJ Pauly D, DØMINA, Green Velvet, IDEMI, it's murph, Joust, Kaivon, Know Good, Lady Faith, Midnight Tyrannosaurus, MitiS, Ray Volpe, Riordan, Rossy, RSquared, Silva Bumpa, Sullivan King, Surf Mesa, Valentino Khan, Zoey808" }]},
+  { artist:"Goldrush: Midnight Riders 2026 — Night 2", venue:"Rawhide Western Town", city:"Chandler", market:"phoenix", date:"2026-09-12", price:"$249.99+", promoter:"Relentless Beats", genre:"Festival (Multi-genre)", url:"", fest:true, source:"curated" },
   // Decadence AZ 2026
   { artist:"Decadence Arizona 2026", venue:"Phoenix Raceway", city:"Avondale", market:"phoenix", date:"2026-12-30", price:"$85–$250+", promoter:"Relentless Beats", genre:"Festival (Multi-genre)", url:"https://decadencearizona.com", fest:true, source:"curated",
     lineup:[{ day:"Dec 30–31", artists:"Lineup TBA — follow @DecadenceArizona" }]},
@@ -642,7 +642,12 @@ const CURATED = [
   { artist:"Sun Sequence w. Odd Mob", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-07-05", price:"See tickets", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jul 5", artists:"Odd Mob" }]},
   { artist:"Sun Sequence w. AHEE", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-07-18", price:"See tickets", promoter:"Walter Where?House", genre:"Electronic / Bass", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Jul 18", artists:"AHEE" }]},
   { artist:"Sun Sequence w. Justin Martin", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-08-22", price:"See tickets", promoter:"Walter Where?House", genre:"Tech House", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Aug 22", artists:"Justin Martin" }]},
-  { artist:"WonkyWilla's Galactic Circus w. smith. & Buku", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-09-26", price:"See tickets", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Sep 26", artists:"smith., Buku" }]},
+  { artist:"WonkyWilla's Galactic Circus w. smith. & Buku", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-09-25", price:"See tickets", promoter:"Walter Where?House", genre:"Bass / Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated", lineup:[{ day:"Sep 25", artists:"smith., Buku" }]},
+  { artist:"Giolì & Assia", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-09-18", price:"$20–$30", promoter:"Walter Where?House", genre:"Melodic Techno", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"Swimming Paul (North American Tour Part 2)", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-09-19", price:"$20–$29", promoter:"Walter Where?House", genre:"Electronic", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"Opulent Temple: Layton Giordani + Syd Gris", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-10-03", price:"See tickets", promoter:"Walter Where?House", genre:"Techno", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"jigitz (50 Ballerinas Tour) w. Killen", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-10-09", price:"See tickets", promoter:"Walter Where?House", genre:"Bass / Dubstep", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
+  { artist:"idgaFNK: ZINGARA w. Gardella, Bella Renee (The Girls Are Making Riddim Tour)", venue:"Walter Where?House", city:"Phoenix", market:"phoenix", date:"2026-12-12", price:"See tickets", promoter:"Walter Where?House", genre:"Riddim / Bass", url:"https://walterwherehouse.com", wwh:true, source:"curated" },
 
   // ── Sunbar Tempe — new 2026 shows (Darkstar closed Jan 31 2026; shows moved here) ─
   { artist:"ZERO", venue:"Sunbar", city:"Tempe", market:"phoenix", date:"2026-05-29", price:"$15–$25", promoter:"Relentless Beats", genre:"Bass / Electronic", url:"https://relentlessbeats.com", source:"curated" },
@@ -695,8 +700,8 @@ const CURATED = [
     lineup:[{ day:"Aug 29 (Sat) — 18+, 6 PM–2 AM", artists:"Lineup TBA — follow @DayTripFest" }]},
 
   // ── BOO Arizona 2026 (Insomniac Halloween) ────────────────────────────────
-  { artist:"BOO Arizona 2026 — Night 1", venue:"WestWorld of Scottsdale", city:"Scottsdale", market:"phoenix", date:"2026-10-30", price:"See tickets", promoter:"Insomniac / Relentless Beats", genre:"Festival (Multi-genre / Halloween)", url:"https://relentlessbeats.com", fest:true, source:"curated",
-    lineup:[{ day:"Oct 30–31 (18+)", artists:"Lineup TBA — follow @InsomniacEvents" }]},
+  { artist:"BOO Arizona 2026 — Night 1", venue:"WestWorld of Scottsdale", city:"Scottsdale", market:"phoenix", date:"2026-10-30", price:"See tickets", promoter:"Insomniac / Relentless Beats", genre:"Festival (Multi-genre / Halloween)", url:"https://arizona.boo-halloween.com/", fest:true, source:"curated",
+    lineup:[{ day:"Oct 30–31 (18+, Phase 1)", artists:"The Chainsmokers, Zedd, Deorro, Level Up, Restricted — more TBA" }]},
   { artist:"BOO Arizona 2026 — Night 2 (Halloween)", venue:"WestWorld of Scottsdale", city:"Scottsdale", market:"phoenix", date:"2026-10-31", price:"See tickets", promoter:"Insomniac / Relentless Beats", genre:"Festival (Multi-genre / Halloween)", url:"", fest:true, source:"curated" },
 
   // ── Mesa Amphitheater — new shows ─────────────────────────────────────────
@@ -717,6 +722,19 @@ const CURATED = [
 
   // ── Crescent Ballroom — Phoenix ────────────────────────────────────────────
   { artist:"Aaron Hibell", venue:"Crescent Ballroom", city:"Phoenix", market:"phoenix", date:"2026-06-23", price:"$20–$30", promoter:"Independent", genre:"Melodic Techno / Electronic", url:"https://relentlessbeats.com", source:"curated" },
+  { artist:"LAERZ", venue:"Crescent Ballroom", city:"Phoenix", market:"phoenix", date:"2026-09-04", price:"$22–$25", promoter:"Independent", genre:"Electronic", url:"https://www.ticketweb.com/event/laerz-crescent-ballroom-tickets/14219764?pl=crescent", source:"curated" },
+
+  // ── HEX 2026 (debut bass festival — Aftershock / Relentless Beats) ─────────
+  { artist:"HEX 2026 — Night 1", venue:"Rawhide Event Center", city:"Chandler", market:"phoenix", date:"2026-10-30", price:"See tickets", promoter:"Aftershock (Relentless Beats)", genre:"Festival (Bass/Dubstep)", url:"https://relentlessbeats.com/events/hex-2026-rawhide-event-center-103026", fest:true, source:"curated",
+    lineup:[{ day:"Fri Oct 30", artists:"Subtronics, INZO, ATLiens, Badklaat, Decimate, Dennett, Hurtbox, Inaktiv, Izzy Vadim, Modal Nodes, Nikademis, Onara, Proxxy, Softest Hard, Sora, Xaebor, YVM3" }]},
+  { artist:"HEX 2026 — Night 2", venue:"Rawhide Event Center", city:"Chandler", market:"phoenix", date:"2026-10-31", price:"See tickets", promoter:"Aftershock (Relentless Beats)", genre:"Festival (Bass/Dubstep)", url:"", fest:true, source:"curated",
+    lineup:[{ day:"Sat Oct 31", artists:"Excision, Decimate, Dennett, Hurtbox, Inaktiv, Izzy Vadim, Modal Nodes, Nikademis, Onara, Proxxy, Softest Hard, Sora, Xaebor, YVM3" }]},
+
+  // ── Warehouse 215 — new shows ───────────────────────────────────────────────
+  { artist:"Afrojack presents Control", venue:"Warehouse 215", city:"Phoenix", market:"phoenix", date:"2026-10-17", price:"See tickets", promoter:"Relentless Beats", genre:"Electro House / Big Room", url:"https://relentlessbeats.com", source:"curated" },
+
+  // ── 9th & Jackson — new shows ────────────────────────────────────────────────
+  { artist:"Holy Priest (Mutate presents)", venue:"9th & Jackson", city:"Phoenix", market:"phoenix", date:"2026-09-26", price:"See tickets", promoter:"Mutate", genre:"Hard Techno", url:"https://www.tixr.com/groups/9thandjackson/events/holy-priest-192276", source:"curated" },
 ];
 
 // deduplicate: if a TM event matches a curated event on same date+similar artist name, prefer curated
