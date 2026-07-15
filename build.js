@@ -751,10 +751,24 @@ async function main() {
   console.log('=== Arizona EDM Calendar Build ===');
   console.log('Fetching Ticketmaster data...');
 
+  // Ticketmaster's city search returns nearby-metro events too, so the same
+  // event.id often comes back from more than one city query below — track
+  // ids we've already kept so a show never gets double/triple-counted.
+  const seenTmIds = new Set();
+  function dedupeRawTm(events) {
+    const fresh = [];
+    for (const e of events) {
+      if (seenTmIds.has(e.id)) continue;
+      seenTmIds.add(e.id);
+      fresh.push(e);
+    }
+    return fresh;
+  }
+
   let tmRaw = [];
   for (const m of MARKETS) {
     try {
-      const events = await fetchTM(m.city, m.stateCode);
+      const events = dedupeRawTm(await fetchTM(m.city, m.stateCode));
       console.log(`  ${m.city}: ${events.length} raw events`);
       const edm = events.filter(isEDM);
       console.log(`  ${m.city}: ${edm.length} EDM events`);
@@ -770,7 +784,7 @@ async function main() {
   const surroundCities = ['Scottsdale', 'Tempe', 'Chandler', 'Mesa', 'Glendale', 'Avondale'];
   for (const city of surroundCities) {
     try {
-      const events = await fetchTM(city, 'AZ');
+      const events = dedupeRawTm(await fetchTM(city, 'AZ'));
       const edm = events.filter(isEDM);
       const mapped = edm.map(e => tmToEvent(e, 'phoenix'));
       tmRaw = tmRaw.concat(mapped);
@@ -796,7 +810,17 @@ async function main() {
   console.log(`RB events after dedup: ${rbFiltered.length}`);
 
   // Merge: curated first (authoritative), then TM, then RB additions
-  const allEvents = [...CURATED, ...tmFiltered, ...rbFiltered];
+  let allEvents = [...CURATED, ...tmFiltered, ...rbFiltered];
+
+  // Final safety net: collapse any remaining same date+venue+artist repeats
+  // (e.g. RB listing an event across two scraped pages)
+  const finalSeen = new Set();
+  allEvents = allEvents.filter(e => {
+    const key = e.date + '|' + e.venue.toLowerCase() + '|' + e.artist.toLowerCase();
+    if (finalSeen.has(key)) return false;
+    finalSeen.add(key);
+    return true;
+  });
 
   // Sort by date
   allEvents.sort((a, b) => a.date.localeCompare(b.date));
