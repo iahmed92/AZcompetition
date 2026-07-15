@@ -735,6 +735,7 @@ const CURATED = [
 
   // ── 9th & Jackson — new shows ────────────────────────────────────────────────
   { artist:"Holy Priest (Mutate presents)", venue:"9th & Jackson", city:"Phoenix", market:"phoenix", date:"2026-09-26", price:"See tickets", promoter:"Mutate", genre:"Hard Techno", url:"https://www.tixr.com/groups/9thandjackson/events/holy-priest-192276", source:"curated" },
+  { artist:"Lil Texas (Basscon Presents)", venue:"9th & Jackson", city:"Phoenix", market:"phoenix", date:"2026-11-14", price:"See tickets", promoter:"Basscon / Insomniac", genre:"Hardstyle", url:"https://9thandjacksonphx.com/shows", source:"curated" },
 ];
 
 // deduplicate: if a TM event matches a curated event on same date+similar artist name, prefer curated
